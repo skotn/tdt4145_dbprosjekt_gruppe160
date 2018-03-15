@@ -16,7 +16,7 @@ public abstract class DBConn {
     public void connect() {
     	try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            // Properties for user and password. Here the user and password are both 'paulr'
+            // Properties for user and password. Here the user and password are both 'root'
             Properties p = new Properties();
             p.put("user", "root");
             p.put("password", "root");           
