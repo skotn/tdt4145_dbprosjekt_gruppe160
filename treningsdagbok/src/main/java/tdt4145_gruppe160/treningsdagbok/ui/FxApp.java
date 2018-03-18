@@ -5,29 +5,31 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class FxApp extends Application {
 	
-	VBox mainLayout;
-	
 	@Override
-	public void start(Stage arg0) throws Exception {
-		Stage primaryStage = new Stage();
+	public void start(Stage primaryStage) throws Exception {
 		primaryStage.setTitle("DB App");
 		
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(FxApp.class.getResource("Menu.fxml"));
+		loader.setLocation(FxApp.class.getResource("Main.fxml"));
+		Pane mainPane = null;
 		try {
-			mainLayout = loader.load();
+			mainPane = loader.load();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		Scene menuScene = new Scene(mainLayout);
-		menuScene.getStylesheets().add(FxApp.class.getResource("style.css").toExternalForm());
-		primaryStage.setScene(menuScene);
+		MainController mainController = loader.getController();
+
+        Navigator.setMainController(mainController);
+		
+		Scene mainScene = new Scene(mainPane);
+		mainScene.getStylesheets().add(FxApp.class.getResource("style.css").toExternalForm());
+		primaryStage.setScene(mainScene);
 		primaryStage.show();
 	}
 	
