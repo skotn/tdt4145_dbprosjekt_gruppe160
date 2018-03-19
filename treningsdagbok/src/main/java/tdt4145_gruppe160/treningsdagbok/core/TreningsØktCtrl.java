@@ -5,6 +5,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class TreningsØktCtrl extends DBConn {
+	private int ID=-1;
+	public int getID() {
+		return ID;
+	}
 	//Brukes også til å legge inn øvelser til økt lenger ned
 	
 	static class TreningsØkt{
@@ -26,29 +30,29 @@ public class TreningsØktCtrl extends DBConn {
 		}
 	}
     //Hva skal id være? hvordan vet man hva id skal være? Hente størrelse på tabellen med select * først prøves.
-    public int insertTreningsØkt(String datoTid, int varighet, int form, int prestasjon) {
+    public boolean insertTreningsØkt(String datoTid, int varighet, int form, int prestasjon) {
     	//Returnerer denne id som kan deretter brukes til å sette inn øvelser i denne økten
-    	int id=-1; 
+    	this.ID=-1; 
     	try {
     		//Genererer id basert på lengde på tabell
     		Statement getId=conn.createStatement();
     		ResultSet rs = getId.executeQuery("select count(*) as id from TreningsØkt");
     		rs.next();
-    		id=rs.getInt("id");
-    		if (id<0) {
-    			return id;
+    		ID=rs.getInt("id");
+    		if (ID<0) {
+    			return false;
     		}
-    		id++;
+    		ID++;
     		
     		//Setter inn i treningsøkt
             Statement statement = conn.createStatement();
-            statement.executeUpdate("INSERT INTO treningsøkt " + "VALUES (" + id + ",'" + datoTid +"',"+varighet+","+form+","+prestasjon+")");
+            statement.executeUpdate("INSERT INTO treningsøkt " + "VALUES (" + ID + ",'" + datoTid +"',"+varighet+","+form+","+prestasjon+")");
             System.out.println("suksess treningsøkt");
-            return id;
+            return true;
             
         } catch (Exception e) {
             System.out.println("db error during insert of Treningsøkt ");
-            return -1;
+            return false;
         }
     }
 
@@ -74,7 +78,8 @@ public class TreningsØktCtrl extends DBConn {
     	
     }
     //Setter inn øvelse til økt, trenger id til spesifikk økt
-    public boolean insertØktØvelse(int øktID, String øvelse, int vekt, int sett) {
+    public boolean insertØktØvelse(String øvelse, int vekt, int sett) {
+    	int øktID=this.ID;
     	try {
             Statement statement = conn.createStatement();
             statement.executeUpdate("INSERT INTO treningsøktøvelse " + "VALUES (" + øktID + ", '" + øvelse +"', "+vekt+", "+sett+ ") ");
@@ -85,7 +90,8 @@ public class TreningsØktCtrl extends DBConn {
         }
     }
     
-    public boolean insertNotat(int id, String formål, String opplevelse) {
+    public boolean insertNotat(String formål, String opplevelse) {
+    	int id=this.ID;
     	try {
             Statement statement = conn.createStatement();
             statement.executeUpdate("INSERT INTO notat " + "VALUES (" + id + ", '" + formål + "', '"+opplevelse+ "')");

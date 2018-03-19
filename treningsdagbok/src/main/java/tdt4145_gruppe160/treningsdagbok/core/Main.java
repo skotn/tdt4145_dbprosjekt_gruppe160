@@ -9,7 +9,7 @@ import tdt4145_gruppe160.treningsdagbok.core.ØvelseCtrl.FriØvelse;
 import tdt4145_gruppe160.treningsdagbok.core.ØvelseCtrl.ØvelseResultat;
 import tdt4145_gruppe160.treningsdagbok.core.ØvelsesGruppeCtrl.ØvelsesGruppe;
 
-
+//TESTER BARE LITT HER, KAn se hvordan klassene funker, alt skal testes her.
 public class Main {
 
 	public static void main(String[] args) {
@@ -26,25 +26,27 @@ public class Main {
 		
 		
 		//Tester treningsøktCtrl
-		/*
+		
 		TreningsØktCtrl øktTest = new TreningsØktCtrl();
 		øktTest.connect();
-		int nyID=øktTest.insertTreningsØkt("2018-02-19 00:00:00", 3, 6, 6);
+		/*Når du setter inn ny treningsøkt settes økt-objektets id til en ny id. Heretter må du legge inn alle øvelser og notater før du lager en ny økt
+		du kan ikke endre økten etter du lager en ny*/
+		øktTest.insertTreningsØkt("2018-02-20 00:00:00", 3, 6, 6);
 		
 		ArrayList<TreningsØkt> økter=øktTest.getNLastTreningsØkt(4);
 		for (TreningsØkt ø : økter) {
 			System.out.println(ø.datoTid+" "+ø.treningsformål+" "+ø.opplevelse);
 		}
-		if (øktTest.insertNotat(nyID, "Få trent litt", "Hyggelig økt")){
-			System.out.println("La inn notat til "+nyID);
+		if (øktTest.insertNotat("Få trent litt", "Hyggelig økt")){
+			System.out.println("La inn notat til "+øktTest.getID());
 		}
 		økter=øktTest.getNLastTreningsØkt(4);
 		for (TreningsØkt ø : økter) {
 			System.out.println(ø.datoTid+" "+ø.treningsformål+" "+ø.opplevelse);
 		}
-		if (øktTest.insertØktØvelse(nyID, "Markløft",100,3)){
-			System.out.println("La inn øvelseøkt til "+nyID);
-		}*/
+		if (øktTest.insertØktØvelse("Markløft",100,10)){
+			System.out.println("La inn øvelseøkt til "+øktTest.getID());
+		}
 		
 		
 		
