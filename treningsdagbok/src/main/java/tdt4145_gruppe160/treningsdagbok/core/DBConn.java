@@ -22,7 +22,7 @@ public abstract class DBConn {
             p.put("password", "root");           
 	        //conn = DriverManager.getConnection("jdbc:mysql://mysql.ansatt.ntnu.no/sveinbra_ektdb?autoReconnect=true&useSSL=false",p);
             //conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ekt?user=root",p);
-            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1/ekt?autoReconnect=true&useSSL=false",p);
+            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1/treningsdagbok?autoReconnect=true&useSSL=false",p);
         } catch (Exception e)
     	{
             throw new RuntimeException("Unable to connect", e);
