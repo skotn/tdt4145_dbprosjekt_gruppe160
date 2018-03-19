@@ -7,7 +7,10 @@ import javafx.scene.Node;
 
 public class Navigator {
 	
-	public static final String APPARATUS_PANE = "Apparatus.FXML";
+	public static final String NEW_WORKOUT_PANE = "new_workout\\NewWorkout.fxml";
+	public static final String NEW_BODYWEIGHT_EXERCISE_PANE = "new_bodyweight_exercise\\NewBodyweightExercise.fxml";
+	public static final String NEW_EQUIPMENT_EXERCISE_PANE = "new_equipment_exercise\\NewEquipmentExercise.fxml";
+	public static final String NEW_EQUIPMENT_PANE = "new_equipment\\NewEquipment.fxml";
 	
 	private static MainController mainController;
 	
