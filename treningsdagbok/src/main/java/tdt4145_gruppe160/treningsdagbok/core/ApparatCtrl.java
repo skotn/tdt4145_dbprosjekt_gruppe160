@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 
 public class ApparatCtrl extends DBConn {
-	static class Apparat {
+	public static class Apparat {
 		public String navn;
 	    public String beskrivelse;
 	    

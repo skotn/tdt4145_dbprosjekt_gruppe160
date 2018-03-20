@@ -32,6 +32,9 @@ public class DatabaseHandler extends DBConn {
 		this.øvelseCtrl.setConnection(this.conn);
 		this.gruppeCtrl.setConnection(this.conn);
 	}
+	public int getID() {
+		return this.øktCtrl.getID();
+	}
 	//Setter inn apparat, navn er nøkkel
 	public boolean insertApparat(String navn, String beskrivelse) {
 		return this.apparatCtrl.insertApparat(navn, beskrivelse);

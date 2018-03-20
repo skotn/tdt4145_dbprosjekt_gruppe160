@@ -7,11 +7,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import tdt4145_gruppe160.treningsdagbok.core.DatabaseHandler;
 
 public class FxApp extends Application {
 	
+	public static DatabaseHandler dbHandler;
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		dbHandler = new DatabaseHandler();
+		dbHandler.connectToDatabase();
+		
 		primaryStage.setTitle("DB App");
 		
 		FXMLLoader loader = new FXMLLoader();
@@ -27,7 +33,7 @@ public class FxApp extends Application {
 
         Navigator.setMainController(mainController);
 		
-		Scene mainScene = new Scene(mainPane, 620, 540);
+		Scene mainScene = new Scene(mainPane, 640, 640);
 		mainScene.getStylesheets().add(FxApp.class.getResource("style.css").toExternalForm());
 		primaryStage.setScene(mainScene);
 		primaryStage.setResizable(false);

@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tdt4145_gruppe160.treningsdagbok.ui.new_workout.NewWorkoutController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="655.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tdt4145_gruppe160.treningsdagbok.ui.new_workout.NewWorkoutController">
    <children>
       <Label alignment="center" text="Create new workout">
          <font>
@@ -58,7 +59,7 @@
         </rowConstraints>
          <children>
             <Label text="Exercise" />
-            <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" fx:id="exerciseChoiceBox" />
+            <ChoiceBox fx:id="exerciseChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" />
             <Label text="Number of repetitions" GridPane.rowIndex="1" />
             <TextField fx:id="repetitionsField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="Number of sets" GridPane.rowIndex="2" />
@@ -66,11 +67,28 @@
          </children>
       </GridPane>
       <Button mnemonicParsing="false" onAction="#addExercise" text="Add exercise" />
-      <ScrollPane prefHeight="100.0" prefWidth="200.0">
+      <ScrollPane prefHeight="86.0" prefWidth="600.0">
         <content>
-          <VBox fx:id="exercises" />
+          <VBox fx:id="exercisesInBox" />
         </content>
       </ScrollPane>
+      <GridPane>
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Objective" />
+            <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" fx:id="objectiveField" />
+            <Label text="Experience" GridPane.rowIndex="1" />
+            <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="experienceField" />
+         </children>
+      </GridPane>
       <Button mnemonicParsing="false" onAction="#save" text="save" />
+      <Label fx:id="confirmationLabel" text="" />
    </children>
 </VBox>

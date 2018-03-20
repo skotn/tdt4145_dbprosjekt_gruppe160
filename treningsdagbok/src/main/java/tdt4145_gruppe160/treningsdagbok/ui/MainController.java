@@ -39,11 +39,6 @@ public class MainController {
 	}
 	
 	@FXML
-	private void onShowExerciseGroups() {
-		Navigator.loadPane(Navigator.EXERCISE_GROUPS_PANE);
-	}
-	
-	@FXML
 	private void onResults() {
 		Navigator.loadPane(Navigator.RESULTS_PANE);
 	}

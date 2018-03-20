@@ -5,7 +5,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class ØvelsesGruppeCtrl extends DBConn {
-	static class ØvelsesGruppe {
+	public static class ØvelsesGruppe {
 		public String navn;
 	    public String beskrivelse;
 	    

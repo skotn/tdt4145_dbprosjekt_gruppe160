@@ -13,7 +13,6 @@ public class Navigator {
 	public static final String NEW_EXERCISE_GROUP_PANE = "new_exercise_group\\NewExerciseGroup.fxml";
 	public static final String NEW_EQUIPMENT_PANE = "new_equipment\\NewEquipment.fxml";
 	public static final String RECENT_WORKOUTS_PANE = "recent_workouts\\RecentWorkouts.fxml";
-	public static final String EXERCISE_GROUPS_PANE = "exercise_groups\\ExerciseGroups.fxml";
 	public static final String RESULTS_PANE = "results\\Results.fxml";
 	
 	private static MainController mainController;

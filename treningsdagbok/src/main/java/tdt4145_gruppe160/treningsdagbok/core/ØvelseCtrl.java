@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 
 public class ØvelseCtrl extends DBConn {
-	static class ØvelseTilRobert{
+	public static class ØvelseTilRobert{
 		public String navn;
 		public String gruppeNavn;
 		
@@ -21,7 +21,7 @@ public class ØvelseCtrl extends DBConn {
 		public String gruppeNavn;
     	
     }
-    static class FriØvelse extends Øvelse{
+    public static class FriØvelse extends Øvelse{
     	public String beskrivelse;
     	
     	public FriØvelse(String n, String b) {
@@ -29,7 +29,7 @@ public class ØvelseCtrl extends DBConn {
     		beskrivelse=b;
     	}
     }
-    static class ApparatØvelse extends Øvelse{
+    public static class ApparatØvelse extends Øvelse{
     	public String apparatNavn;
     	
     	public ApparatØvelse(String n, String a) {
@@ -128,7 +128,7 @@ public class ØvelseCtrl extends DBConn {
     	ArrayList<ØvelseTilRobert> øvelser = new ArrayList<ØvelseTilRobert>();
 		try {
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from øvelse");
+            ResultSet rs = stmt.executeQuery("select * from øvelse order by navn asc");
             while (rs.next()) {
             	øvelser.add(new ØvelseTilRobert(rs.getString("NAVN"),rs.getString("GRUPPE_NAVN")));
             }
