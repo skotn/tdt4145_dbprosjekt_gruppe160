@@ -6,6 +6,16 @@ import java.util.ArrayList;
 
 
 public class ØvelseCtrl extends DBConn {
+	static class ØvelseTilRobert{
+		public String navn;
+		public String gruppeNavn;
+		
+		public ØvelseTilRobert(String n, String g) {
+			navn=n;
+			gruppeNavn=g;
+		}
+	}
+	
 	static class Øvelse {
 		public String navn;
 		public String gruppeNavn;
@@ -114,6 +124,22 @@ public class ØvelseCtrl extends DBConn {
         }
     }
     //Samme som over med apparatøvelser
+    public ArrayList<ØvelseTilRobert> getØvelser() {
+    	ArrayList<ØvelseTilRobert> øvelser = new ArrayList<ØvelseTilRobert>();
+		try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from øvelse");
+            while (rs.next()) {
+            	øvelser.add(new ØvelseTilRobert(rs.getString("NAVN"),rs.getString("GRUPPE_NAVN")));
+            }
+            return øvelser;
+
+        } catch (Exception e) {
+            System.out.println("db error during select of øvelser = "+e);
+            return null;
+        }
+    }
+   //Samme som over med alle øvelser
     public ArrayList<ApparatØvelse> getApparatØvelse() {
     	ArrayList<ApparatØvelse> øvelser = new ArrayList<ApparatØvelse>();
 		try {

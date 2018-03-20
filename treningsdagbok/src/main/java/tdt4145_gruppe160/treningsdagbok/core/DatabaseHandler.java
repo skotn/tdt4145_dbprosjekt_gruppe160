@@ -7,6 +7,7 @@ import tdt4145_gruppe160.treningsdagbok.core.TreningsØktCtrl.TreningsØkt;
 import tdt4145_gruppe160.treningsdagbok.core.ØvelseCtrl.ApparatØvelse;
 import tdt4145_gruppe160.treningsdagbok.core.ØvelseCtrl.FriØvelse;
 import tdt4145_gruppe160.treningsdagbok.core.ØvelseCtrl.ØvelseResultat;
+import tdt4145_gruppe160.treningsdagbok.core.ØvelseCtrl.ØvelseTilRobert;
 import tdt4145_gruppe160.treningsdagbok.core.ØvelsesGruppeCtrl.ØvelsesGruppe;
 
 public class DatabaseHandler extends DBConn {
@@ -75,6 +76,10 @@ public class DatabaseHandler extends DBConn {
     //REturnerer arraylist over alle apparatøvelser
     public ArrayList<ApparatØvelse> getApparatØvelse() {
     	return this.øvelseCtrl.getApparatØvelse();
+    }
+    //REturnerer alle øvelser slik at Robert kan vise de i grensensittet sitt
+    public ArrayList<ØvelseTilRobert> getØvelser() {
+    	return this.øvelseCtrl.getØvelser();
     }
     //Navn er en øvelse, start og slutt er datotid på formatet "YYYY-MM-DD HH:MM:SS"
     //Returnerer arraylist over resultatobjekter for denne øvelsen, med datotid, vekt og sett for denne øvelsen
