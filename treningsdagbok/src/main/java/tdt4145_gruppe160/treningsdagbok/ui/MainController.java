@@ -19,8 +19,33 @@ public class MainController {
 	}
 	
 	@FXML
+	private void onRecentWorkouts() {
+		Navigator.loadPane(Navigator.RECENT_WORKOUTS_PANE);
+	}
+	
+	@FXML
 	private void onNewEquipmentExercise() {
 		Navigator.loadPane(Navigator.NEW_EQUIPMENT_EXERCISE_PANE);
+	}
+	
+	@FXML
+	private void onNewExerciseGroup() {
+		Navigator.loadPane(Navigator.NEW_EXERCISE_GROUP_PANE);
+	}
+	
+	@FXML
+	private void onNewEquipment() {
+		Navigator.loadPane(Navigator.NEW_EQUIPMENT_PANE);
+	}
+	
+	@FXML
+	private void onShowExerciseGroups() {
+		Navigator.loadPane(Navigator.EXERCISE_GROUPS_PANE);
+	}
+	
+	@FXML
+	private void onResults() {
+		Navigator.loadPane(Navigator.RESULTS_PANE);
 	}
 	
 	public void setContent(Node node) {

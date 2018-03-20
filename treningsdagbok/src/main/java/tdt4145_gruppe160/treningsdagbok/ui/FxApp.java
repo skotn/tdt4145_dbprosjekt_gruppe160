@@ -27,9 +27,10 @@ public class FxApp extends Application {
 
         Navigator.setMainController(mainController);
 		
-		Scene mainScene = new Scene(mainPane);
+		Scene mainScene = new Scene(mainPane, 620, 540);
 		mainScene.getStylesheets().add(FxApp.class.getResource("style.css").toExternalForm());
 		primaryStage.setScene(mainScene);
+		primaryStage.setResizable(false);
 		primaryStage.show();
 	}
 	
