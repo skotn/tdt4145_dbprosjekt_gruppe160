@@ -28,4 +28,7 @@ public abstract class DBConn {
             throw new RuntimeException("Unable to connect", e);
     	}
     }
+    public void setConnection(Connection conn) {
+    	this.conn=conn;
+    }
 }
