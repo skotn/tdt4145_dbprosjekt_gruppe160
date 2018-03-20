@@ -1,9 +1,8 @@
-CREATE DATABASE treningsdagbok;
+/*CREATE DATABASE treningsdagbok;*/
 
 CREATE TABLE Treningsøkt(
 	ID INTEGER NOT NULL,
-    Dato INTEGER, 
-    Tidspunkt INTEGER,
+    DatoTid DATETIME,
     Varighet INTEGER,
     Personlig_Form INTEGER,
     Prestasjon INTEGER,
@@ -12,9 +11,14 @@ CREATE TABLE Treningsøkt(
     CONSTRAINT Prestasjon_Ck CHECK (Prestasjon BETWEEN 1 AND 10)
 );
 CREATE TABLE Apparat(
-	ID INTEGER NOT NULL,
+	NAVN VARCHAR(45) NOT NULL,
     BESKRIVELSE VARCHAR(450),
-    CONSTRAINT apparat_pk PRIMARY KEY (ID)
+    CONSTRAINT apparat_pk PRIMARY KEY (NAVN)
+);
+CREATE TABLE Øvelsesgruppe(
+	NAVN VARCHAR(45) NOT NULL,
+    BESKRIVELSE VARCHAR(450),
+    CONSTRAINT gruppe_pk PRIMARY KEY (NAVN)
 );
 CREATE TABLE Øvelse(
 	NAVN VARCHAR(45) NOT NULL,
@@ -28,14 +32,14 @@ CREATE TABLE Øvelse(
 
 CREATE TABLE ApparatØvelse(
 	NAVN VARCHAR(45) NOT NULL,
-    APPARAT_ID INTEGER,
+    APPARAT_NAVN VARCHAR(45),
     CONSTRAINT apparat_øvelse_pk PRIMARY KEY (NAVN),
     CONSTRAINT apparat_øvelse_fk FOREIGN KEY (NAVN)
     references Øvelse(NAVN)
 		on update cascade
         on delete cascade,
-    CONSTRAINT apparat_id_fk FOREIGN KEY (APPARAT_ID)
-    references Apparat(ID)
+    CONSTRAINT apparat_id_fk FOREIGN KEY (APPARAT_NAVN)
+    references Apparat(NAVN)
         on update cascade
         on delete cascade
 );
@@ -52,6 +56,8 @@ CREATE TABLE FriØvelse(
 CREATE TABLE TreningsøktØvelse(
     ID INTEGER NOT NULL,
     NAVN VARCHAR(45) NOT NULL,
+    VEKT INTEGER,
+    SETT INTEGER,
     CONSTRAINT tøø_pk PRIMARY KEY (ID, NAVN),
     CONSTRAINT økt_fk FOREIGN KEY (ID)
     references Treningsøkt(ID)
@@ -61,12 +67,6 @@ CREATE TABLE TreningsøktØvelse(
     references Øvelse(NAVN)
 		on update cascade
         on delete cascade
-);
-
-CREATE TABLE Øvelsesgruppe(
-	NAVN VARCHAR(45) NOT NULL,
-    BESKRIVELSE VARCHAR(450),
-    CONSTRAINT gruppe_pk PRIMARY KEY (NAVN)
 );
 
 CREATE TABLE Notat(

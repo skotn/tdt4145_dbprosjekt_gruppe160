@@ -20,7 +20,6 @@ public class RegMaalCtrl extends DBConn {
     }
 
     public void startReg(int brikkeNr) {
-
         this.brikkeNr = brikkeNr;
     }
     public void regPost (int sekvNr, int postNr, int tid) {
