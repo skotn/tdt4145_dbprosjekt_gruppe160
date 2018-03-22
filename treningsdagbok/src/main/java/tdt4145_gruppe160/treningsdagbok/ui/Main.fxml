@@ -23,6 +23,7 @@
             <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" text="Recent workouts" onAction="#onRecentWorkouts" />
             <MenuItem mnemonicParsing="false" text="Show results" onAction="#onResults" />
+            <MenuItem mnemonicParsing="false" text="Show exercises by group" onAction="#onExercicesByGroup" />
           </items>
         </Menu>
       </menus>

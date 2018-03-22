@@ -43,6 +43,11 @@ public class MainController {
 		Navigator.loadPane(Navigator.RESULTS_PANE);
 	}
 	
+	@FXML
+	private void onExercicesByGroup() {
+		Navigator.loadPane(Navigator.EXERCISES_BY_GROUP_PANE);
+	}
+	
 	public void setContent(Node node) {
 		anchorPane.getChildren().setAll(node);
 	}
