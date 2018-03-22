@@ -11,7 +11,7 @@ public class TreningsØktCtrl extends DBConn {
 	}
 	//Brukes også til å legge inn øvelser til økt lenger ned
 	
-	static class TreningsØkt{
+	public static class TreningsØkt{
 		public int id;
 		public String datoTid;
 		public int varighet;
