@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -9,28 +13,35 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tdt4145_gruppe160.treningsdagbok.ui.MainController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tdt4145_gruppe160.treningsdagbok.ui.MainController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
-          	<MenuItem mnemonicParsing="false" text="New workout" onAction="#onNewWorkout" />
-            <MenuItem mnemonicParsing="false" text="New bodyweight exercise" onAction="#onNewBodyeightExercise" />
-            <MenuItem mnemonicParsing="false" text="New equipment exercise" onAction="#onNewEquipmentExercise" />
-            <MenuItem mnemonicParsing="false" text="New exercise group" onAction="#onNewExerciseGroup" />
-            <MenuItem mnemonicParsing="false" text="New equipment" onAction="#onNewEquipment" />
+          	<MenuItem mnemonicParsing="false" onAction="#onNewWorkout" text="New workout" />
+            <MenuItem mnemonicParsing="false" onAction="#onNewBodyeightExercise" text="New bodyweight exercise" />
+            <MenuItem mnemonicParsing="false" onAction="#onNewEquipmentExercise" text="New equipment exercise" />
+            <MenuItem mnemonicParsing="false" onAction="#onNewExerciseGroup" text="New exercise group" />
+            <MenuItem mnemonicParsing="false" onAction="#onNewEquipment" text="New equipment" />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Recent workouts" onAction="#onRecentWorkouts" />
-            <MenuItem mnemonicParsing="false" text="Show results" onAction="#onResults" />
-            <MenuItem mnemonicParsing="false" text="Show exercises by group" onAction="#onExercicesByGroup" />
+            <MenuItem mnemonicParsing="false" onAction="#onRecentWorkouts" text="Recent workouts" />
+            <MenuItem mnemonicParsing="false" onAction="#onResults" text="Show results" />
+            <MenuItem mnemonicParsing="false" onAction="#onExercicesByGroup" text="Show exercises by group" />
           </items>
         </Menu>
       </menus>
     </MenuBar>
     <AnchorPane fx:id="anchorPane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-      <children>
-      </children>
+         <children>
+            <Label layoutX="67.0" layoutY="65.0" text="Velkommen til vår treningsapp, for å bruke denne appen klikk på File">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="154.0" layoutY="115.0" text="Fra File kan du registrere apparater, øvelser, øvelsesgrupper eller økter" />
+            <Label layoutX="14.0" layoutY="132.0" prefHeight="62.0" prefWidth="678.0" text="Du kan også se tidligere treningsøkter som har notat, resultater for tidligere øvelser eller øvelser sortert etter grupper" />
+         </children>
     </AnchorPane>
   </children>
 </VBox>

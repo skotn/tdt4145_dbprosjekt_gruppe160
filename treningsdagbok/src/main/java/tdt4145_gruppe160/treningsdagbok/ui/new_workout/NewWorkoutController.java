@@ -31,7 +31,7 @@ public class NewWorkoutController {
 	@FXML private TextField durationField;
 	@FXML private TextField formField;
 	@FXML private TextField performanceField;
-	@FXML private TextField repetitionsField;
+	@FXML private TextField weightField;
 	@FXML private TextField setsField;
 	@FXML private ChoiceBox<String> exerciseChoiceBox;
 	@FXML private TextArea objectiveField;
@@ -73,7 +73,7 @@ public class NewWorkoutController {
 				durationField.clear();
 				formField.clear();
 				performanceField.clear();
-				repetitionsField.clear();
+				weightField.clear();
 				setsField.clear();
 				
 				exercisesInBox.getChildren().setAll();
@@ -91,17 +91,17 @@ public class NewWorkoutController {
 	@FXML
 	private void addExercise() {
 		try {
-			int reps = Integer.parseInt(repetitionsField.getText());
+			int weight = Integer.parseInt(weightField.getText());
 			int sets = Integer.parseInt(setsField.getText());
 			
-			exercises.add(new Exercise(exerciseChoiceBox.getValue(), reps, sets));
+			exercises.add(new Exercise(exerciseChoiceBox.getValue(), weight, sets));
 			
 			exercisesInBox.getChildren().add(new Label(
-					"repetitions: " + reps
+					"weight: " + weight
 					+ " sets: " + sets
 					));
 			
-			repetitionsField.clear();
+			weightField.clear();
 			setsField.clear();
 		} catch(NumberFormatException e) {
 			System.out.println("nope");

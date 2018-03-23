@@ -62,7 +62,7 @@ public class TreningsØktCtrl extends DBConn {
     	TreningsØkt t;
 		try {
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("select * "+ "from treningsøkt inner join notat on (treningsøkt.id=notat.id)" + " order by DatoTid " + "limit "+ n+ ";");
+            ResultSet rs = stmt.executeQuery("select * "+ "from treningsøkt inner join notat on (treningsøkt.id=notat.id)" + " order by DatoTid desc " + "limit "+ n+ ";");
             while (rs.next()) {
             	t = new TreningsØkt(rs.getInt("Treningsøkt.id"),rs.getString("datoTid"),rs.getInt("Varighet"),rs.getInt("Personlig_Form"),rs.getInt("Prestasjon"));
             	t.treningsformål=rs.getString("Treningsformål");

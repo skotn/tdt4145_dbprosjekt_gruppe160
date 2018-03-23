@@ -18,7 +18,7 @@ public class RecentWorkoutsController {
 			listView.getItems().clear();
 			
 			FxApp.dbHandler.getNLastTreningsØkt(n).forEach(t -> {
-				listView.getItems().add("#" + t.id + ", " + t.datoTid + ", " + t.varighet + " minutes, experience: " + t.opplevelse + ", form:" + t.personlig_form);
+				listView.getItems().add(t.datoTid + "   " + t.varighet + " minutes  Experience: " + t.opplevelse );
 			});
 				
 		} catch(NumberFormatException e) {}

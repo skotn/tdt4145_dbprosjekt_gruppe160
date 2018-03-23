@@ -32,6 +32,7 @@ public class DatabaseHandler extends DBConn {
 		this.øvelseCtrl.setConnection(this.conn);
 		this.gruppeCtrl.setConnection(this.conn);
 	}
+	//Hver gang en ny økt lages, lagres denne
 	public int getID() {
 		return this.øktCtrl.getID();
 	}

@@ -38,7 +38,7 @@ public class ØvelseCtrl extends DBConn {
     	}
     }
     //Hjelpeklasse som brukes til krav 3, inneholder resultat fra tidspunkt datoTid
-    static class ØvelseResultat{
+    public static class ØvelseResultat{
     	public String datoTid;
     	public int vekt;
     	public int sett;
